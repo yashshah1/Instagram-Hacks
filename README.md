@@ -3,7 +3,7 @@ A few hacks to mess around with my friends and to spam them
 
 ## Runnning
 To run this code, you need to have selenium and the chrome driver too.
-**Linux Instructions: **
+**Linux Instructions:**
 1. Install selenium `sudo pip install selenium`
 2. Get the chrome driver [here](http://selenium-python.readthedocs.io/installation.html)
 3. Extract the `chromedriver_linux64.zip` in the same directory, you'll get a file named `chromedriver`

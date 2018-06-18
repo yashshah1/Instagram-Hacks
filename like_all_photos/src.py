@@ -56,3 +56,9 @@ for i in users:
 					continue 
 		except:
 			break
+	"""Last image"""
+	try:
+		driver.find_element_by_class_name('coreSpriteHeartOpen').click()
+	except:
+		driver.find_element_by_class_name('coreSpriteHeartFull').click()
+		driver.find_element_by_class_name('coreSpriteHeartOpen').click() 	

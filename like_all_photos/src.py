@@ -51,7 +51,6 @@ for i in users:
 					driver.find_element_by_class_name('coreSpriteHeartOpen').click() 	   
 					driver.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
 					time.sleep(2)
-					driver.find_element_by_class_name('coreSpriteRightPaginationArrow').click()
 				except:
 					continue 
 		except:

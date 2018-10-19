@@ -1,7 +1,7 @@
 ## Instagram Hacks
 A few hacks to mess around with my friends and to spam them
 
-## Runnning
+## Running
 To run this code, you need to have selenium and the chrome driver too.
 **Linux Instructions:**
 1. Install selenium `sudo pip install selenium`

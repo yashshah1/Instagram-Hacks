@@ -18,14 +18,14 @@ length_of_text = len(text)
 
 driver = webdriver.Chrome()
 driver.get('https://www.instagram.com/accounts/login/')
-
+time.sleep(5)
 user_name = driver.find_element_by_name('username')
 password = driver.find_element_by_name('password')
 
 user_name.send_keys(USERNAME)
 password.send_keys(PASSWORD)
 
-login = driver.find_element_by_class_name('_5f5mN')
+login = driver.find_element_by_class_name('L3NKy')
 login.click() #gets logged in
 
 

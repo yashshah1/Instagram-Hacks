@@ -25,7 +25,7 @@ password = driver.find_element_by_name('password')
 user_name.send_keys(USERNAME)
 password.send_keys(PASSWORD)
 
-login = driver.find_element_by_class_name('L3NKy')
+login = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]')
 login.click() #gets logged in
 
 

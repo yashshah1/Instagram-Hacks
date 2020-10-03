@@ -2,6 +2,8 @@
 import time
 import os
 import requests
+from tqdm import tqdm
+
 from selenium import webdriver
 
 # launch Chrome and navigate to Instagram page
@@ -25,7 +27,7 @@ while match == False:
 # find all links on the page and if they match '/p' append to list named posts
 posts = []
 links = driver.find_elements_by_tag_name('a')
-for link in links:
+for link in tqdm(links):
     post = link.get_attribute('href')
     if '/p/' in post:
         posts.append(post)
@@ -49,7 +51,7 @@ vid_folder = os.path.join(parent_dir, directory2)
 os.makedirs(img_folder)
 os.makedirs(vid_folder)
 
-for post in posts:
+for post in tqdm(posts):
     count += 1
     driver.get(post)
     shortcode = driver.current_url.split("/")[-2]

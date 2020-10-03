@@ -1,8 +1,7 @@
 # import selenium,time & requests modules
 import time
-
+import os
 import requests
-
 from selenium import webdriver
 
 # launch Chrome and navigate to Instagram page
@@ -31,10 +30,25 @@ for link in links:
     if '/p/' in post:
         posts.append(post)
 
-# print(posts)
 print("total posts that will be downloaded are: ", len(posts))
 download_url = ''
 count = 0
+# making directory
+t = time.localtime()
+current_time = time.strftime("%H:%M:%S", t)
+# Directory
+directory1 = current_time+'/images'
+
+directory2 = current_time+'/videos'
+# Parent Directory path
+parent_dir = "./"
+
+# Path
+img_folder = os.path.join(parent_dir, directory1)
+vid_folder = os.path.join(parent_dir, directory2)
+os.makedirs(img_folder)
+os.makedirs(vid_folder)
+
 for post in posts:
     count += 1
     driver.get(post)
@@ -43,12 +57,14 @@ for post in posts:
     if type == 'video':
         download_url = driver.find_element_by_xpath("//meta[@property='og:video']").get_attribute('content')
         video_data = requests.get(download_url).content
-        with open('video'+str(count) + '.mp4', 'wb') as handler:
+        vid_path=os.path.join(vid_folder,'video'+str(count) + '.mp4')
+        with open(vid_path, 'wb') as handler:
             handler.write(video_data)
     else:
         download_url = driver.find_element_by_xpath("//meta[@property='og:image']").get_attribute('content')
         img_data = requests.get(download_url).content
-        with open(str(count) + '.jpg', 'wb') as handler:
+        img_path=os.path.join(img_folder,'image'+str(count) + '.jpg')
+        with open(img_path, 'wb') as handler:
             handler.write(img_data)
     time.sleep(6)
 
